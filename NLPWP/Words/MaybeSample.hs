@@ -1,3 +1,10 @@
+module MaybeSample ( lookupOrder, 
+                     lookupOrder0,
+                     lookupOrder1,
+                     lookupOrder2,
+                     maybeBool
+                   ) where
+
 import qualified Data.Map
 
 lookupOrder0 :: Data.Map.Map String Integer ->
@@ -31,4 +38,3 @@ lookupOrder :: Data.Map.Map String Integer ->
 lookupOrder customers orders customer = do
     customerId <- Data.Map.lookup customer customers
     Data.Map.lookup customerId orders
-
