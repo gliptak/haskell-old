@@ -1,9 +1,10 @@
-module MaybeSample ( lookupOrder, 
-                     lookupOrder0,
-                     lookupOrder1,
-                     lookupOrder2,
-                     maybeBool
-                   ) where
+module NLPWP.Words.MaybeSample (
+  lookupOrder, 
+  lookupOrder0,
+  lookupOrder1,
+  lookupOrder2,
+  maybeBool
+) where
 
 import qualified Data.Map
 

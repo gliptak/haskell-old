@@ -1,4 +1,11 @@
-import qualified Data.Bits as B
+module NLPWP.NGrams.SuffixArray (
+  fromList,
+  toList,
+  elems,
+  contains,
+  containsWithFreq
+) where
+
 import qualified Data.List as L
 import qualified Data.Vector as V
 import qualified Data.Vector ((!))

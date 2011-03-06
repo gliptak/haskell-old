@@ -1,0 +1,21 @@
+Name:		nlpwp-examples
+Version:	0.0.1
+License:	OtherLicense
+License-file:	LICENSE
+Copyright:	Copyright 2010-2011 Daniël de Kok and Harm Brouwer
+Author:		Daniël de Kok <me@danieldk.eu>
+Maintainer:	Daniël de Kok <me@danieldk.eu>
+Homepage:	http://nlpwp.org/
+Category:	Natural Language Processing
+Synopsis:	Example code from Natural Language Processing for the Working Programmer.
+Description:	Example code from Natural Language Processing for the Working Programmer.
+Cabal-Version:	>= 1.2
+Build-Type:	Simple
+
+Library
+  Exposed-Modules:      NLPWP.NGrams.SuffixArray, NLPWP.Tagging,
+                        NLPWP.Tagging.Frequency, NLPWP.Tagging.TBL,
+                        NLPWP.Tagging.Evaluation, NLPWP.Words.MaybeSample
+  Build-Depends:        base >= 4 && < 5, containers >= 0.4,
+                        ListZipper >= 1.2.0.1, vector >= 0.7
+  Ghc-Options:          -Wall
