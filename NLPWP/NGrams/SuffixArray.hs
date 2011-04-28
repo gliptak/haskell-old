@@ -8,7 +8,7 @@ module NLPWP.NGrams.SuffixArray (
 
 import qualified Data.List as L
 import qualified Data.Vector as V
-import qualified Data.Vector ((!))
+import Data.Vector ((!))
 
 data SuffixArray a = SuffixArray (V.Vector a) (V.Vector Int)
                      deriving Show
@@ -53,7 +53,7 @@ binarySearchByBounded :: (Ord a) => (a -> a -> Ordering) -> V.Vector a ->
 binarySearchByBounded cmp v e lower upper
     | V.null v      = Nothing
     | upper < lower = Nothing
-    | otherwise     = case cmp e (v V.! middle) of
+    | otherwise     = case cmp e (v ! middle) of
                         LT -> binarySearchByBounded cmp v e lower (middle - 1)
                         EQ -> Just middle
                         GT -> binarySearchByBounded cmp v e (middle + 1) upper
@@ -70,10 +70,10 @@ lowerBoundByBounds :: Ord a => (a -> a -> Ordering) -> V.Vector a -> a ->
                       Int -> Int -> Maybe Int
 lowerBoundByBounds cmp v e lower upper
     | V.null v = Nothing
-    | upper == lower = case cmp e (v V.! lower) of
+    | upper == lower = case cmp e (v ! lower) of
                          EQ -> Just lower
                          _  -> Nothing
-    | otherwise = case cmp e (v V.! middle) of
+    | otherwise = case cmp e (v ! middle) of
                     GT -> lowerBoundByBounds cmp v e (middle + 1) upper
                     _  -> lowerBoundByBounds cmp v e lower middle
     where middle = (lower + upper) `div` 2
@@ -91,10 +91,10 @@ upperBoundByBounds :: Ord a => (a -> a -> Ordering) -> V.Vector a -> a ->
                       Int -> Int -> Maybe Int
 upperBoundByBounds cmp v e lower upper
     | V.null v       = Nothing
-    | upper <= lower = case cmp e (v V.! lower) of
+    | upper <= lower = case cmp e (v ! lower) of
                          EQ -> Just lower
                          _  -> Nothing
-    | otherwise      = case cmp e (v V.! middle) of
+    | otherwise      = case cmp e (v ! middle) of
                          LT -> upperBoundByBounds cmp v e lower (middle - 1)
                          _  -> upperBoundByBounds cmp v e middle upper
     where middle     = ((lower + upper) `div` 2) + 1
