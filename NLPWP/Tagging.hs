@@ -1,6 +1,6 @@
 module NLPWP.Tagging (
-                      Tag(..),
-                      Token(..),
+                      Tag,
+                      Token,
                       TrainingInstance(..),
                       toTrainingInstance
                      ) where
